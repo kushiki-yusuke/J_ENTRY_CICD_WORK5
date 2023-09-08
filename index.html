@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角形チェッカー</title>
+</head>
+<body>
+
+<h2>三角形の辺の長さを入力してください</h2>
+
+<label>辺1: <input type="number" id="sideA" required></label><br>
+<label>辺2: <input type="number" id="sideB" required></label><br>
+<label>辺3: <input type="number" id="sideC" required></label><br>
+<button onclick="checkTriangle()">判定</button>
+
+<p id="result"></p>
+
+<script src="TriangleChecker.js"></script>
+<script>
+    function checkTriangle() {
+        const sideA = parseFloat(document.getElementById('sideA').value);
+        const sideB = parseFloat(document.getElementById('sideB').value);
+        const sideC = parseFloat(document.getElementById('sideC').value);
+
+        const checker = new TriangleChecker(sideA, sideB, sideC);
+        
+        if (checker.isValidTriangle()) {
+            document.getElementById('result').textContent = "これは有効な三角形です。";
+        } else {
+            document.getElementById('result').textContent = "これは無効な三角形です。";
+        }
+    }
+</script>
+
+</body>
+</html>
